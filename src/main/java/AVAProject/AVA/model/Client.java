@@ -29,6 +29,7 @@ public class Client {
 	private String motPasse;
 	private String nom;
 	private String prenom;
+	private String role;
 	
 	public Client() {
 		
@@ -79,5 +80,13 @@ public class Client {
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
