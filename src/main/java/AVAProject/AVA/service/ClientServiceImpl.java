@@ -18,4 +18,9 @@ public class ClientServiceImpl implements ClientService {
 		return clientRepo.save(client);
 	}
 
+	@Override
+	public boolean checkEmail(String email) {
+		return clientRepo.existsByEmail(email);
+	}
+
 }

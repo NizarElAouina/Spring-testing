@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import AVAProject.AVA.model.Client;
 import AVAProject.AVA.service.ClientService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -20,7 +21,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/signin")
 	public String login() {
 		return "login";
 	}
@@ -31,18 +32,23 @@ public class HomeController {
 	}
 	
 	@PostMapping("/createClient")
-	public String createClient(@ModelAttribute Client client) {
-		
-		//System.out.println(client);
+	public String createClient(@ModelAttribute Client client, HttpSession session) {
+		boolean f = clientService.checkEmail(client.getEmail());
+		if(f) {
+			session.setAttribute("msg","Client déja existant, veuillez vous connecter ou changez de coordonnées");
+		}else {
+			//System.out.println(client);
 		Client clientDtls = clientService.createClient(client);
 		if(clientDtls != null) {
-			System.out.println("Registerd successfully 2");
+			session.setAttribute("msg","Inscription réussie, veuillez désomrais vous connecter");
 		}else {
-			System.out.println("Error");
+			session.setAttribute("msg","Erreur du serveur");
 		}
 		//clientService.save(client);
 		
-		return "login";
+		}
+		
+		return "redirect:/register";
 	}
 	
 

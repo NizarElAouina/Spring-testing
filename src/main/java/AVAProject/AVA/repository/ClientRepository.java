@@ -7,4 +7,3 @@ import AVAProject.AVA.model.Client;
 public interface ClientRepository extends JpaRepository<Client, Integer>{
 	public boolean existsByEmail(String email);
 }
-
