@@ -10,7 +10,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import AVAProject.AVA.model.Client;
 
 public class CustomClient implements UserDetails{
+	
 	private Client client;
+	
+	public CustomClient(Client client) {
+		super();
+		this.client = client;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -31,6 +31,7 @@ public class HomeController {
 		return "register";
 	}
 	
+	
 	@PostMapping("/createClient")
 	public String createClient(@ModelAttribute Client client, HttpSession session) {
 		boolean f = clientService.checkEmail(client.getEmail());
