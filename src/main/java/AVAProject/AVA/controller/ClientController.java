@@ -42,5 +42,5 @@ public class ClientController {
 	public String home() {
 		return "client/home";
 	}
-
+	
 }

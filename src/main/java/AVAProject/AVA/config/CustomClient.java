@@ -11,6 +11,10 @@ import AVAProject.AVA.model.Client;
 
 public class CustomClient implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6129675145475132847L;
 	private Client client;
 	
 	public CustomClient(Client client) {
